@@ -44,18 +44,26 @@ def get_valid_locations(board,position,opponentPosition):
 		valid_locations.append((r+1,c+1))
 		if isValidPosition(r+2,c+2) and isValidLocation(board,r+2,c+2,position,opponentPosition):
 			valid_locations.append((r+2,c+2))
+			if isValidPosition(r+3,c+3) and isValidLocation(board,r+3,c+3,position,opponentPosition):
+				valid_locations.append((r+3,c+3))
 	if isValidPosition(r+1,c-1) and isValidLocation(board,r+1,c-1,position,opponentPosition):
 		valid_locations.append((r+1,c-1))
 		if isValidPosition(r+2,c-2) and isValidLocation(board,r+2,c-2,position,opponentPosition):
 			valid_locations.append((r+2,c-2))
+			if isValidPosition(r+3,c-3) and isValidLocation(board,r+3,c-3,position,opponentPosition):
+				valid_locations.append((r+3,c-3))
 	if isValidPosition(r-1,c+1) and isValidLocation(board,r-1,c+1,position,opponentPosition):
 		valid_locations.append((r-1,c+1))
 		if isValidPosition(r-2,c+2) and isValidLocation(board,r-2,c+2,position,opponentPosition):
 			valid_locations.append((r-2,c+2))
+			if isValidPosition(r-3,c+3) and isValidLocation(board,r-3,c+3,position,opponentPosition):
+				valid_locations.append((r-3,c+3))
 	if isValidPosition(r-1,c-1) and isValidLocation(board,r-1,c-1,position,opponentPosition):
 		valid_locations.append((r-1,c-1))
 		if isValidPosition(r-2,c-2) and isValidLocation(board,r-2,c-2,position,opponentPosition):
 			valid_locations.append((r-2,c-2))
+			if isValidPosition(r-3,c-3) and isValidLocation(board,r-3,c-3,position,opponentPosition):
+				valid_locations.append((r-3,c-3))
 	return valid_locations
 
 def winningMove(board,position,opponentPosition):
@@ -166,11 +174,11 @@ while not gameOver: #game loop
 				
 
 				if isValidLocation(board, row, col, PlayerPosition, AIPosition):
-					for _ in get_valid_locations(board, PlayerPosition,AIPosition):
+					for location in get_valid_locations(board, PlayerPosition,AIPosition):
 						r,c = PlayerPosition
 						if not(board[r][c] == 2):
 							board[r][c] = visited
-						if (row,col) == _:
+						if (row,col) == location:
 							PlayerPosition = (row,col)
 	
 							if winningMove(board, AIPosition,PlayerPosition):
