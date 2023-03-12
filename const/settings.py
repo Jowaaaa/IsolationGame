@@ -1,14 +1,19 @@
 Row_Number = 4
 Column_Number = 4
 Square_Size = 100
-Radius = int(Square_Size/2 - 12)
 notVisited = 0
 visited  = 1
 PlayerPiece = 0
 AIPiece = 1
-
-BLUE = (0,0,255)
-RED = (255,0,0)
 BLACK = (0,0,0)
-GREY = (128,128,128)
 WHITE = (255,255,255)
+gameOver = False
+width = Column_Number * Square_Size + 5
+height = (Row_Number+1) * Square_Size + 5
+size = (width, height)
+ROW1 = 0 
+COL1 = 0 
+ROW2 = 3 
+COL2 = 3
+PlayerPosition = (ROW1,COL1)
+AIPosition = (ROW2,COL2)
